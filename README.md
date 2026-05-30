@@ -361,8 +361,8 @@ is a single string with one of the following forms:
 | `""`               | Blank row.                                                             |
 
 **Numbering.** Selectable entries are numbered `1..N` in the
-order they appear. If the **last** entry is `@back` or `@exit`,
-it is numbered `0` instead.
+order they appear. Any entry whose action is `@back` or `@exit`
+is numbered `0` instead.
 
 **Submenus** are simply functions that call `ui_menu` again. A
 submenu typically ends with `"Back|@back"`.

@@ -632,9 +632,9 @@ ui_confirm() {
             break
         fi
         case ${ans,,} in
-            y|yes|s|si|sí) result='yes'; rc=0; break ;;
-            n|no)          result='no';  rc=1; break ;;
-            *)             _ui_restore_footer_at_prompt ;;
+            y|yes|s|si) result='yes'; rc=0; break ;;
+            n|no)       result='no';  rc=1; break ;;
+            *)          _ui_restore_footer_at_prompt ;;
         esac
     done
 
@@ -750,7 +750,6 @@ ui_menu() {
         local -a numbers=()
         local -a actions=()
         local n=1
-        local last_index=$(( ${#_entries[@]} - 1 ))
         local idx
         for idx in "${!_entries[@]}"; do
             local raw=${_entries[idx]}
@@ -761,8 +760,7 @@ ui_menu() {
                     ;;
                 *)
                     local action=${raw#*|}
-                    if (( idx == last_index )) \
-                       && [[ $action == @back || $action == @exit ]]; then
+                    if [[ $action == @back || $action == @exit ]]; then
                         numbers+=(0)
                         actions+=("$action")
                     else

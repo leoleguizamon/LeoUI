@@ -368,8 +368,8 @@ entrada es un único string con uno de estos formatos:
 | `""`                  | Fila vacía.                                                              |
 
 **Numeración.** Las entradas seleccionables se numeran `1..N`
-en el orden en que aparecen. Si la **última** entrada es
-`@back` o `@exit`, se numera `0`.
+en el orden en que aparecen. Cualquier entrada cuya acción sea
+`@back` o `@exit` se numera `0`.
 
 **Submenús.** Son simplemente funciones que llaman a `ui_menu`
 otra vez. Un submenú típicamente termina con `"Volver|@back"`.
